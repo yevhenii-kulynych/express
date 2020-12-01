@@ -1,0 +1,47 @@
+
+.leaderboard {
+  height: 75%;
+  width: 18rem;
+  position: absolute;
+  transition: 0.5s;
+  right: -15rem;
+}
+
+.leaderboard__body {
+  margin: 0 0 0 3rem;
+  background-color: #282828;
+  height: inherit;
+  box-shadow: 20px 0px 20px 0px #ab26e5;
+  padding: 5px;
+}
+
+.leaderboard__head > button {
+  padding: 1rem;
+  border: 1px solid #ab26e5;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.leaderboard__body .title {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.leaderboard__body .table {
+  margin-top: 10px;
+}
+
+.leaderboard__body .table ul {
+  color: white;
+  list-style: none;
+}
+
+.leaderboard__body .table ul li {
+  font-size: 1rem;
+  font-family: sans-serif;
+  padding: 4px;
+}
