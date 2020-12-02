@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Leaderboard.css";
-
+import { setScoree } from "../../actions/SetScore";
 
 const Leaderboard = () => {
 
   const [isOpened, setOpened] = useState(false);
   const getContainerRef = useRef(null);
-  // const [score, setScore] = useState([]);
   const score = useSelector(state => state.score);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
 
@@ -33,35 +33,25 @@ const Leaderboard = () => {
 
   useEffect(() => {
 
-    // fetch('http://localhost:5000/api/getScore', {
-    //   method: 'GET',
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*"
-    //   }
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     setScore(data)
-    //   })
-
+    dispatch(setScoree());
   }, [])
-  console.log(score)
+
+  console.log('Leaderboard: ' + score)
+
   const getData = (obj) => {
 
-    // const sortedUser = obj.sort((a, b) => b.score - a.score);
-    //
-    // const limitUsers = [];
-    // limitUsers.push(...sortedUser);
-    // limitUsers.length = 15;
-    //
-    // return limitUsers.map((el, index) => {
-    //     return (
-    //       <li key={ index }> { index + 1 }: { el.name } - <code>{ el.score }</code></li>
-    //       )
-    // })
+    const sortedUser = obj.sort((a, b) => b.score - a.score);
+
+    const limitUsers = [];
+    limitUsers.push(...sortedUser);
+    limitUsers.length = 15;
+
+    return limitUsers.map((el, index) => {
+        return (
+          <li key={ index }> { index + 1 }: { el.name } - <code>{ el.score }</code></li>
+          )
+    })
   }
-
-
 
   return (
       <div className="leaderboard" ref={getContainerRef}>
@@ -71,7 +61,7 @@ const Leaderboard = () => {
         <div className="leaderboard__body">
           <h1 className="title">Leaderboard</h1>
           <div className="table">
-            <ul>{  }</ul>
+            <ul>{ getData(score) }</ul>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./Score.css";
 import { useSelector, useDispatch } from "react-redux";
 import { newGame } from "../../actions/NewGame";
-import { setScore } from "../../actions/SetScore";
+import { setScoree } from "../../actions/SetScore";
 
 const Score = props => {
 
@@ -39,17 +39,6 @@ const Score = props => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-
-        // fetch('http://localhost:5000/api/getScore', {
-        //   method: 'GET',
-        //   headers: {
-        //     "Access-Control-Allow-Origin": "*"
-        //   }
-        // })
-        //   .then(response => response.json())
-        //   .then(data => {
-        //     dispatch(setScore(data))
-        //   })
       })
 
   }
@@ -68,7 +57,7 @@ const Score = props => {
               <button className="again-btn" onClick={() => {
                 dispatch(newGame());
                 setScore(saveScore(score, inputRef.current.value));
-                dispatch(setScore([{x:10}]))
+                dispatch(setScoree());
                 }}>
                 Again
               </button>
