@@ -1,18 +1,12 @@
 
-export const setScoreAsync = (data) => {
+export const getScoreAsync = (data) => {
   return {
-    type: 'SET_SCORE',
+    type: 'GET_SCORE',
     payload: data
   }
 }
 
-export const initApp = () => {
-  return {
-    type: 'INIT_APP'
-  }
-}
-
-export const setScoree = () => {
+export const getScore = () => {
 
   return dispatch => {
 
@@ -24,7 +18,7 @@ export const setScoree = () => {
     })
       .then(response => response.json())
       .then(data => {
-        dispatch(setScoreAsync(data))
+        dispatch(getScoreAsync(data))
       })
   }
 }

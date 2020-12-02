@@ -1,6 +1,6 @@
 
 .leaderboard {
-  height: 75%;
+  height: 100%;
   width: 18rem;
   position: absolute;
   transition: 0.5s;
@@ -11,7 +11,7 @@
   margin: 0 0 0 3rem;
   background-color: #282828;
   height: inherit;
-  box-shadow: 20px 0px 20px 0px #ab26e5;
+  box-shadow: 10px 5px 20px 0px #ab26e5;
   padding: 5px;
 }
 
@@ -44,4 +44,20 @@
   font-size: 1rem;
   font-family: sans-serif;
   padding: 4px;
+}
+
+.leaderboard__body .table ul li:nth-child(1) span {
+  color: #DAA520;
+}
+
+.leaderboard__body .table ul li:nth-child(2) span {
+  color: #C0C0C0;
+}
+
+.leaderboard__body .table ul li:nth-child(3) span {
+  color: #cd7f32;
+}
+
+.date {
+  font-size: 0.75rem;
 }

@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef} from "react";
 import "./Score.css";
 import { useSelector, useDispatch } from "react-redux";
 import { newGame } from "../../actions/NewGame";
-import { setScoree } from "../../actions/SetScore";
+import { getScore } from "../../actions/GetScore";
 
 const Score = props => {
 
@@ -57,7 +57,7 @@ const Score = props => {
               <button className="again-btn" onClick={() => {
                 dispatch(newGame());
                 setScore(saveScore(score, inputRef.current.value));
-                dispatch(setScoree());
+                dispatch(getScore());
                 }}>
                 Again
               </button>

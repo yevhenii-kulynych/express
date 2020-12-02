@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Leaderboard.css";
-import { setScoree } from "../../actions/SetScore";
+import { getScore } from "../../actions/GetScore";
 
 const Leaderboard = () => {
 
@@ -33,8 +33,8 @@ const Leaderboard = () => {
 
   useEffect(() => {
 
-    dispatch(setScoree());
-  }, [])
+    dispatch(getScore());
+  }, [dispatch])
 
   console.log('Leaderboard: ' + score)
 
@@ -48,7 +48,7 @@ const Leaderboard = () => {
 
     return limitUsers.map((el, index) => {
         return (
-          <li key={ index }> { index + 1 }: { el.name } - <code>{ el.score }</code></li>
+          <li key={ index }><code>{ index + 1 }) <span>{ el.name }</span> - </code>{ el.score }<div><code className="date">Date - { new Date(el.date).toLocaleString() }</code></div></li>
           )
     })
   }
